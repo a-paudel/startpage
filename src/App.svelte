@@ -57,17 +57,20 @@
   />
 </div>
 
-<!-- search bar -->
 <div class="flex flex-col items-center h-screen justify-center">
-  <!-- svelte-ignore a11y-autofocus -->
-  <h1 class="z2 text-6xl text-dark-1 select-none">Search</h1>
-  <input
-    autofocus
-    type="text"
-    class="p4 z2 rounded-xl w-1/2 bg-dark-1 border-none shadow-lg shadow-inset text-light focus:outline-none"
-    bind:value={searchTerm}
-    on:change={searchHandler}
-  />
+  <div
+    class="flex flex-col items-center justify-center bg-dark-1 w-3/4 hfit pb6 rounded-3xl z2 shadow-2xl"
+  >
+    <!-- svelte-ignore a11y-autofocus -->
+    <h1 class="z2 text-6xl text-dark-4 select-none">Search</h1>
+    <input
+      autofocus
+      type="text"
+      class="p4 z2 rounded-xl w-3/4 bg-dark-3 border-none shadow-lg shadow-inset text-light focus:outline-none"
+      bind:value={searchTerm}
+      on:change={searchHandler}
+    />
+  </div>
 </div>
 
 <button

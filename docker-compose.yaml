@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  app:
+    image: halverneus/static-file-server
+    restart: unless-stopped
+    env_file: .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.moneytransfer.rule=Host(`start.paudel.me`)"
+      - "traefik.http.routers.moneytransfer.entrypoints=web,websecure"
+      - "traefik.http.routers.moneytransfer.tls.certresolver=le"
+
+    expose:
+      - 8000
+
+    volumes:
+      - ./dist:/web
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
